@@ -769,10 +769,10 @@ var QR = (function () {
             }
             ctx.draw();
         }
-    }
+    };
 
     module.exports = {
         api: api
     }
 
-})()
+})();

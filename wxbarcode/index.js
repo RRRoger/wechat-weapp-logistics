@@ -20,4 +20,4 @@ function qrc(id, code, width, height) {
 module.exports = {
 	barcode: barc,
 	qrcode: qrc
-}
+};

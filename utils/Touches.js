@@ -12,7 +12,7 @@ class Touches {
   }
 
   _getEndX(e, startX) { // 获取滑动结束滑动的距离
-    let touch = e.changedTouches
+    let touch = e.changedTouches;
     if (touch.length === 1) {
       return touch[0].clientX - startX
     }
@@ -26,22 +26,22 @@ class Touches {
   }
 
   getClientX(e) { // 获取滑动的横坐标
-    let touch = e.touches
+    let touch = e.touches;
     if (touch.length === 1) {
       return touch[0].clientX
     }
   }
 
   touchM(e, dataList, startX) { // touchmove 过程中更新列表数据
-    let list = this._resetData(dataList)
-    list[this._getIndex(e)].left = this._getMoveX(e, startX)
+    let list = this._resetData(dataList);
+    list[this._getIndex(e)].left = this._getMoveX(e, startX);
     return list
   }
 
   touchE(e, dataList, startX, width) { // touchend 更新列表数据
-    let list = this._resetData(dataList)
-    let disX = this._getEndX(e, startX)
-    let left = 0
+    let list = this._resetData(dataList);
+    let disX = this._getEndX(e, startX);
+    let left = 0;
 
     if (disX < 0) { // 判断滑动方向， （向左滑动）
       // 滑动的距离大于删除宽度的一半就显示操作列表 否则不显示
@@ -50,12 +50,12 @@ class Touches {
       left = 0
     }
 
-    list[this._getIndex(e)].left = left
+    list[this._getIndex(e)].left = left;
     return list
   }
 
   deleteItem(e, dataList) { // 删除功能
-    dataList.splice(this._getIndex(e), 1)
+    dataList.splice(this._getIndex(e), 1);
     return dataList
   }
 }

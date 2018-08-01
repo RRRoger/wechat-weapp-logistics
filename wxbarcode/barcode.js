@@ -63,7 +63,7 @@ exports.code128 = function (ctx, text, width, height) {
     }
 
     ctx.draw();
-}
+};
 
 
 function stringToCode128(text) {
@@ -398,5 +398,5 @@ var PATTERNS = [
     [2, 1, 1, 2, 1, 4, 0, 0],  // 104
     [2, 1, 1, 2, 3, 2, 0, 0],  // 105
     [2, 3, 3, 1, 1, 1, 2, 0]   // 106
-]
+];
 

@@ -1,3 +1,15 @@
+const formatTime = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+
 // time tools START
 
 const mths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
@@ -406,5 +418,7 @@ module.exports = {
   checkEmail: checkEmail,
   dateParseString: dateParseString,
   Base64: Base64,
-  md5: md5
+  md5: md5,
+  formatTime: formatTime,
+  formatNumber: formatNumber
 }

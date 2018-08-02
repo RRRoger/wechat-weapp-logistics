@@ -1,3 +1,6 @@
+/** 用了zanui 文档参考路径: https://www.youzanyun.com/zanui/weapp#/zanui/base/icon **/
+@import "zanui/dist/index.wxss";
+
 /**app.wxss**/
 .container {
   height: 100%;
@@ -8,3 +11,40 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+
+.cp-view-separator {
+  height: 1rem;
+}
+
+.cp-view-little-separator {
+  height: 8px;
+}
+
+.cp-express-card {
+  color: #888;
+  font-size: 14px;
+  margin-left: 14px;
+}
+
+.line {
+  width: 100%;
+  height: 1rpx;
+  background: #ECECEC;
+}
+
+.login-from {
+  margin-top: 20px;
+  flex: auto;
+}
+
+.inputView {
+  background-color: #fff;
+  line-height: 44px;
+  width: 700rpx;
+}
+
+
+.cp-button {
+  background-color: #1296db;
+}

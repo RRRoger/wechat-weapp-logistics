@@ -1,31 +1,29 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/demo/demo",
+    "pages/index/index",    
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#EFEFEF"
+    "backgroundColor": "#EFEFEF",
+    "navigationBarTitleText": "查快递"
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "index",
-        "iconPath": "pages/static/icon/待我审批.png"
-      },{
-        "pagePath": "pages/logs/logs",
-        "text": "page1",
-        "iconPath": "pages/static/icon/待我审批.png"
+        "pagePath": "pages/demo/demo",
+        "text": "快递查询",
+        "iconPath": "pages/static/icon/查询dark.png",
+        "selectedIconPath": "pages/static/icon/查询light.png"
       },
       {
-        "pagePath": "pages/demo/demo",
-        "text": "page2",
-        "iconPath": "pages/static/icon/抄送我的.png"
+        "pagePath": "pages/index/index",
+        "text": "我的快递",
+        "iconPath": "pages/static/icon/我的dark.png",
+        "selectedIconPath": "pages/static/icon/我的light.png"
       }
     ]
   }

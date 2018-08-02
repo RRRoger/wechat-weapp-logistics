@@ -1,0 +1,13 @@
+
+.accept-station {
+  font-size: 12px;
+}
+
+.attention {
+  margin-left: 20px;
+}
+
+.scan {
+	height: 24px;
+	width: 24px;
+}

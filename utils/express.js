@@ -1,13 +1,15 @@
 //快递鸟电商ID，登录用户账号查看
 var CusBase64 = require('base64.js');
 var MD5 = require('MD5.js');
+const Toast = require('../zanui/dist/toast/toast');
+
 
 var AppId = null;
 var AppKey = null;
 
 
-AppId = '***';  //需要申请
-AppKey = '***';  //需要申请
+AppId = '***'; //需要申请
+AppKey = '***'; //需要申请
 
 
 //http://kdniao.com/ 加入domain
@@ -55,11 +57,12 @@ function queryExpress(expname, expCode, expNo, obj) {
     fail: function({
       errMsg
     }) {
-      wx.showToast({
-          title: '查询物流失败!',
-          icon: 'loading',
-          duration: 1000
-        });
+      Toast({
+        type: 'fail',
+        message: '查询物流失败!',
+        selector: '#zan-toast-test',
+        timeout: 1000
+      });
     }
   })
 
@@ -68,6 +71,15 @@ function queryExpress(expname, expCode, expNo, obj) {
 function queryByNum(expNo, obj) {
   var post_body = {
     'LogisticCode': expNo
+  };
+  if (AppId === '***') {
+    Toast({
+      type: 'fail',
+      message: '秘钥错误, 请联系Roger!',
+      selector: '#zan-toast-test',
+      timeout: 1000
+    });
+    return;
   };
   wx.request({
     url: url,
@@ -119,10 +131,11 @@ function queryByNum(expNo, obj) {
         obj.setData({
           ExpressInfo: null,
         });
-        wx.showToast({
-          title: '没有匹配的物流!',
-          icon: 'loading',
-          duration: 1000
+        Toast({
+          type: 'fail',
+          message: '没有匹配的物流!',
+          selector: '#zan-toast-test',
+          timeout: 1000
         });
       }
     },

@@ -48,10 +48,11 @@ Page({
       }
     };
     if (exist_flag){
-      wx.showToast({
-        title: '已关注过此单号!',
-        icon: 'loading',
-        duration: 1000
+      Toast({
+        type: 'fail',
+        message: '已关注过此单号!',
+        selector: '#zan-toast-test',
+        timeout: 1000
       });
     }else{
       this.addExpNo(expNo, expNos);
@@ -60,19 +61,21 @@ Page({
   addExpNo: function (expNo, expNos){
     expNos.push({ expNo: expNo });
     wx.setStorageSync('expNos', expNos);
-    wx.showToast({
-      title: '关注成功',
-      icon: 'success',
-      duration: 1000
+    Toast({
+      type: 'success',
+      message: '关注成功!',
+      selector: '#zan-toast-test',
+      timeout: 1000
     });
     return;
   },
   clearExpNos: function(){
     wx.setStorageSync('expNos', []);
-    wx.showToast({
-      title: '清除成功',
-      icon: 'success',
-      duration: 1000
+    Toast({
+      type: 'success',
+      message: '清除成功!',
+      selector: '#zan-toast-test',
+      timeout: 1000
     });
     return;
   },

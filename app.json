@@ -2,7 +2,8 @@
   "pages": [
     "pages/demo/demo",
     "pages/index/index",    
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/myexp/myexp"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -20,7 +21,7 @@
         "selectedIconPath": "pages/static/icon/查询light.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/myexp/myexp",
         "text": "我的快递",
         "iconPath": "pages/static/icon/我的dark.png",
         "selectedIconPath": "pages/static/icon/我的light.png"

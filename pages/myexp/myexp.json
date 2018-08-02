@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "我的快递",
+  "usingComponents": {
+    "zan-button": "../../../zanui/dist/btn/index",
+    "zan-button-group": "../../../zanui/dist/btn-group/index",
+    "zan-panel": "../../../zanui/dist/panel/index",
+    "zan-row": "../../../zanui/dist/row/index",
+    "zan-col": "../../../zanui/dist/col/index",
+    "zan-tag": "../../../zanui/dist/tag/index",
+    "doc-page": "../../../zanui/components/doc-page/index"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,12 @@
+<view>
+  <view class="cp-view-separator" />
+  
+  <block wx:for="{{expNos}}" wx:key="*this">
+    <view id="{{item.id}}" data-obj_id="{{item.id}}">
+      <view class="cp-express-card">
+        <view>{{item.expNo}}</view>
+        <view class="cp-view-separator" />
+      </view>
+    </view>
+  </block>
+</view>

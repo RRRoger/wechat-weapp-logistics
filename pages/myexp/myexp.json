@@ -7,7 +7,10 @@
     "zan-row": "../../../zanui/dist/row/index",
     "zan-col": "../../../zanui/dist/col/index",
     "zan-tag": "../../../zanui/dist/tag/index",
-    "doc-page": "../../../zanui/components/doc-page/index"
+    "doc-page": "../../../zanui/components/doc-page/index",
+    "zan-toast": "../../../zanui/dist/toast/index",
+    "zan-actionsheet": "../../zanui/dist/actionsheet/index",
+    "zan-field": "../../zanui/dist/field/index"
   },
   "enablePullDownRefresh": true
 }

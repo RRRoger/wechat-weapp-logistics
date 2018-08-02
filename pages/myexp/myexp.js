@@ -1,9 +1,8 @@
 // pages/myexp/myexp.js
-Page({
+const Toast = require('../../zanui/dist/toast/toast');
+const app = getApp();
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     expNos: []
   },
@@ -11,20 +10,20 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     let expNos = wx.getStorageSync('expNos') || [];
     this.setData({
       expNos: expNos
@@ -34,15 +33,15 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
@@ -55,14 +54,33 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+  clearExpNos: function() {
+    wx.setStorageSync('expNos', []);
+    Toast({
+      type: 'success',
+      message: '清除成功!',
+      selector: '#zan-toast-test',
+      timeout: 1000
+    });
+    this.setData({
+      expNos: []
+    });
+    return;
+  },
+  turn2query: function (e, a) {
+    /*
+    tip1: tabBar 跳转用 `switchTab`
+    tip2: tabBar 跳转用 不能携带queryString 解决方案: 用 `globalData` 变量
+    tip3: wxml里面 `dataset` 的大小写和中划线变量命名问题, 参考微信小程序文档
+    */
+    console.log("turn2query");
+    app.globalData.globalExpNo = e.currentTarget.dataset.exp_no;
+    wx.switchTab({
+      url: '../demo/demo',
+    });
+  },
 })

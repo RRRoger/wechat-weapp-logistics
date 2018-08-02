@@ -1,13 +1,15 @@
 {
   "navigationBarTitleText": "快递查询",
   "usingComponents": {
-    "zan-actionsheet": "../../zanui/dist/actionsheet/index",
-    "zan-button": "../../zanui/dist/btn/index",
-    "doc-page": "../../zanui/components/doc-page/index",
-    "zan-field": "../../zanui/dist/field/index",
+    "zan-button": "../../../zanui/dist/btn/index",
+    "zan-button-group": "../../../zanui/dist/btn-group/index",
+    "zan-panel": "../../../zanui/dist/panel/index",
     "zan-row": "../../../zanui/dist/row/index",
-    "zan-tag": "../../../zanui/dist/tag/index",
     "zan-col": "../../../zanui/dist/col/index",
-    "zan-toast": "../../../zanui/dist/toast/index"
+    "zan-tag": "../../../zanui/dist/tag/index",
+    "doc-page": "../../../zanui/components/doc-page/index",
+    "zan-toast": "../../../zanui/dist/toast/index",
+    "zan-actionsheet": "../../zanui/dist/actionsheet/index",
+    "zan-field": "../../zanui/dist/field/index"
   }
 }

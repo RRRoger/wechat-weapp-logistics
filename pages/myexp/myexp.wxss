@@ -1,1 +1,5 @@
 /* pages/myexp/myexp.wxss */
+
+.attention {
+  margin-left: 20px;
+}

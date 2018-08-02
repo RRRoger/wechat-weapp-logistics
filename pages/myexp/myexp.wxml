@@ -1,12 +1,19 @@
 <view>
+  <view>
+    <zan-button type="primary" size="small" bindtap="clearExpNos" class="attention">清除</zan-button>
+  </view>
   <view class="cp-view-separator" />
-  
   <block wx:for="{{expNos}}" wx:key="*this">
-    <view id="{{item.id}}" data-obj_id="{{item.id}}">
-      <view class="cp-express-card">
-        <view>{{item.expNo}}</view>
+    <view data-exp_no="{{item.expNo}}" bindtap="turn2query" >
+      <view class="cp-express-line">
+        <view>
+          <zan-tag type="primary" plain>中通</zan-tag>
+          {{item.expNo}}
+        </view>
         <view class="cp-view-separator" />
       </view>
+      <view class="line"/>
     </view>
   </block>
 </view>
+<zan-toast id="zan-toast-test"></zan-toast>

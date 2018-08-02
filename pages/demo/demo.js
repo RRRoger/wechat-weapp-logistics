@@ -10,19 +10,27 @@ Page({
     ExpressInfo: null,
     expNo: '219209073916x'
   },
-  onLoad: function() {},
-  expNoInput: function (e) {
+  onLoad: function(options) {
+  },
+  expNoInput: function(e) {
     this.setData({
       expNo: e.detail.detail.value
     })
   },
-  queryExpress: function () { 
+  queryExpress: function() {
     console.log("this.expNo", this.data.expNo);
     express.queryByNum(this.data.expNo, this);
   },
   onShow: function() {
+    console.log("app.globalData.globalExpNo", app.globalData.globalExpNo);
+    if (app.globalData.globalExpNo){
+      this.setData({
+        expNo: app.globalData.globalExpNo
+      });
+      app.globalData.globalExpNo = null;
+    }
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     let path = '/pages/demo/demo';
     let title = '快递查询';
 
@@ -33,7 +41,7 @@ Page({
     }
   },
   //关注
-  attention: function (){
+  attention: function() {
 
     let expNo = this.data.expNo;
     let expNos = wx.getStorageSync('expNos') || [];
@@ -41,25 +49,27 @@ Page({
     console.log(expNos);
 
     let exist_flag = false;
-    for (var i = 0; i < expNos.length; i++){
-      if (expNos[i]['expNo'] === expNo){
+    for (var i = 0; i < expNos.length; i++) {
+      if (expNos[i]['expNo'] === expNo) {
         exist_flag = true;
         break;
       }
     };
-    if (exist_flag){
+    if (exist_flag) {
       Toast({
         type: 'fail',
         message: '已关注过此单号!',
         selector: '#zan-toast-test',
         timeout: 1000
       });
-    }else{
+    } else {
       this.addExpNo(expNo, expNos);
     }
   },
-  addExpNo: function (expNo, expNos){
-    expNos.push({ expNo: expNo });
+  addExpNo: function(expNo, expNos) {
+    expNos.push({
+      expNo: expNo
+    });
     wx.setStorageSync('expNos', expNos);
     Toast({
       type: 'success',
@@ -69,17 +79,7 @@ Page({
     });
     return;
   },
-  clearExpNos: function(){
-    wx.setStorageSync('expNos', []);
-    Toast({
-      type: 'success',
-      message: '清除成功!',
-      selector: '#zan-toast-test',
-      timeout: 1000
-    });
-    return;
-  },
-  scanExpNo: function(){
+  scanExpNo: function() {
     // 允许从相机和相册扫码
     wx.scanCode({
       success: (res) => {
@@ -91,7 +91,7 @@ Page({
       }
     })
   },
-  clearPage: function(){
+  clearPage: function() {
     this.setData({
       ExpressInfo: null
     })

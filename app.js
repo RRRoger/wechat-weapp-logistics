@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null, 
+    //全局变量 用查询快递页面的显示快递单号 如果是从我的快递跳转过来的 此变量有值
+    globalExpNo: null,
   }
 });

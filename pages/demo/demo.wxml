@@ -1,14 +1,17 @@
 <view>
   <view class="cp-view-separator" />
+  <zan-row>
+    <zan-col col="4">
+      <image bindtap="scanExpNo" src="../../pages/static/icon/扫码.png" class="attention scan"></image>
+    </zan-col>
+    <zan-col col="16">
+      <zan-field placeholder="请输入单号" bind:change="expNoInput" value="{{expNo}}" />
+    </zan-col>
+    <zan-col col="4">
+      <image bindtap="deleteTxt" src="../../pages/static/icon/清空文本_粗.png" class="scan"></image>
+    </zan-col>
+  </zan-row>
 
-  <view class="inputView">
-    <zan-field title="单号" placeholder="请输入单号" bind:change="expNoInput" value="{{expNo}}" />
-  </view>
-  <view class="cp-view-separator" />
-  <view>
-    <image bindtap="scanExpNo" src="../../pages/static/icon/扫码.png" class="attention scan"></image>
-    <!-- <zan-button type="primary" size="small" bindtap="scanExpNo" class="attention">扫码</zan-button> -->
-  </view>
   <view class="cp-view-separator" />
   <view>
     <zan-button type="primary" size="small" bindtap="queryExpress" class="attention">查询快递</zan-button>

@@ -8,7 +8,7 @@ Page({
   data: {
     userInfo: {},
     ExpressInfo: null,
-    expNo: '219209073916x'
+    expNo: ''
   },
   onLoad: function(options) {
   },
@@ -45,7 +45,10 @@ Page({
 
     let expNo = this.data.expNo;
     let expNos = wx.getStorageSync('expNos') || [];
-
+    if (!expNo) {
+      console.log("expNo is null!");
+      return;
+    };
     console.log(expNos);
 
     let exist_flag = false;
@@ -66,7 +69,7 @@ Page({
       this.addExpNo(expNo, expNos);
     }
   },
-  addExpNo: function(expNo, expNos) {
+  addExpNo: function(expNo, expNos) {    
     expNos.push({
       expNo: expNo
     });
@@ -90,6 +93,11 @@ Page({
         this.queryExpress();
       }
     })
+  },
+  deleteTxt: function(){
+    this.setData({
+      expNo: ""
+    });
   },
   clearPage: function() {
     this.setData({

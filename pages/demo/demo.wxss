@@ -8,6 +8,7 @@
 }
 
 .scan {
+  margin-top: 13px;
 	height: 24px;
 	width: 24px;
 }

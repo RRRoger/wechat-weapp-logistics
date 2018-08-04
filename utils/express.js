@@ -49,6 +49,14 @@ function queryExpress(expname, expCode, expNo, obj) {
     method: 'POST',
     success: function(result) {
       console.log('查询物流的有效数据:', result.data);
+      if (result.data.Traces.length === 0){
+        Toast({
+          type: 'fail',
+          message: "暂无轨迹信息!",
+          selector: '#zan-toast-test',
+          timeout: 1000
+        });
+      };
       obj.setData({
         ExpressInfo: result.data
       })
@@ -107,7 +115,8 @@ function queryByNum(expNo, obj) {
           }
           wx.showActionSheet({
             itemList: codelist,
-            itemColor: '#dd7e6b',
+            itemColor: '#38f',
+
             success: function(res) {
               if (res.tapIndex != null) {
                 var code = data[res.tapIndex].ShipperCode;

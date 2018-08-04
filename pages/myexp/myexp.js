@@ -4,7 +4,7 @@ const app = getApp();
 
 Page({
   data: {
-    expNos: []
+    expNos: [],
   },
 
   /**
@@ -83,4 +83,14 @@ Page({
       url: '../demo/demo',
     });
   },
+  deleteExpno: function(e, a){
+    let _index = e.currentTarget.dataset.exp_index;
+    let expNos = wx.getStorageSync('expNos') || [];
+    expNos.splice(_index, 1);
+    wx.setStorageSync('expNos', expNos);
+    this.setData({
+      expNos: expNos
+    });
+    return
+  }
 })

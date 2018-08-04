@@ -10,6 +10,7 @@
     "doc-page": "../../../zanui/components/doc-page/index",
     "zan-toast": "../../../zanui/dist/toast/index",
     "zan-actionsheet": "../../zanui/dist/actionsheet/index",
-    "zan-field": "../../zanui/dist/field/index"
+    "zan-field": "../../zanui/dist/field/index",
+    "zan-icon": "../../zanui/dist/icon/index"
   }
 }

@@ -22,12 +22,20 @@ Page({
     express.queryByNum(this.data.expNo, this);
   },
   onShow: function() {
-    console.log("app.globalData.globalExpNo", app.globalData.globalExpNo);
+    let expNos = wx.getStorageSync('expNos') || [];
+    if (expNos.length > 0){
+      this.setData({
+        expNo: expNos[0].expNo,
+      });
+    };
     if (app.globalData.globalExpNo){
       this.setData({
         expNo: app.globalData.globalExpNo
       });
       app.globalData.globalExpNo = null;
+    };
+    if (this.data.expNo){
+      this.queryExpress();
     }
   },
   onShareAppMessage: function() {

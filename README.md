@@ -14,6 +14,14 @@
 api_url: "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 ```
 
+## 小程序码
+
+
+
+![](pages/static/image/weapp_code.tiff)
+
+--
+
 ## demo
 
 

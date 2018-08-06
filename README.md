@@ -14,3 +14,16 @@
 api_url: "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 ```
 
+## demo
+
+### 快递查询
+
+![](pages/static/image/myexp.jpg)
+
+### 我的快递
+![](pages/static/image/select.jpg)
+
+
+## License
+
+[MIT license](https://github.com/RRRoger/wechat-weapp-logistics/blob/master/LICENSE).

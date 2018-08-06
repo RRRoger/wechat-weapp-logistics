@@ -18,7 +18,7 @@ api_url: "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 
 
 
-![](pages/static/image/weapp_code.tiff)
+![](pages/static/image/weapp_code.png)
 
 --
 

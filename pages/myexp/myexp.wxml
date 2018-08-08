@@ -14,7 +14,7 @@
       <view class="cp-view-separator" />
       <view class="cp-express-line">
         <view class='tag'>
-          <zan-tag type="primary" plain wx:if="{{item.note}}">{{item.note}}</zan-tag>
+          <zan-tag type="primary" plain wx:if="{{item.note}}" data-exp_no="{{item.expNo}}" bindtap="turn2query">{{item.note}}</zan-tag>
         </view>
         <view>
           <text class="zan-font-bold num-txt" data-exp_no="{{item.expNo}}" bindtap="turn2query">{{item.expNo}}</text>

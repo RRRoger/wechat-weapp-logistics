@@ -17,6 +17,10 @@
 }
 
 .num-txt {
-   margin-left: 20px;
-   font-size: 20px
+   margin-left: 18px;
+   font-size: 18px
+}
+
+.tag {
+  margin-left:18px;
 }

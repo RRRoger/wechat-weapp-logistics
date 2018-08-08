@@ -1,54 +1,118 @@
-//index.js
-//获取应用实例
-const app = getApp()
+const app = getApp();
+
+var utils = require('../../utils/util.js');
+const Toast = require('../../zanui/dist/toast/toast');
+var express = require('../../utils/express.js');
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    ExpressInfo: null,
+    expNo: ''
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  onLoad: function (options) {
+  },
+  expNoInput: function (e) {
+    this.setData({
+      expNo: e.detail.detail.value
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
+  queryExpress: function () {
+    this.setData({
+      ExpressInfo: null,
+    });
+    console.log("this.expNo", this.data.expNo);
+    express.queryByNum(this.data.expNo, this);
+  },
+  onShow: function () {
+    let expNos = wx.getStorageSync('expNos') || [];
+    if (expNos.length > 0) {
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+        expNo: expNos[0].expNo,
+      });
+    };
+    if (app.globalData.globalExpNo) {
+      this.setData({
+        expNo: app.globalData.globalExpNo
+      });
+      app.globalData.globalExpNo = null;
+    };
+    // if (this.data.expNo){
+    //   this.queryExpress();
+    // }
+  },
+  onShareAppMessage: function () {
+    let path = '/pages/index/index';
+    let title = '快递查询';
+
+    return {
+      title: title,
+      desc: title,
+      path: path
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  //关注
+  attention: function () {
+
+    let expNo = this.data.expNo;
+    let expNos = wx.getStorageSync('expNos') || [];
+    if (!expNo) {
+      console.log("expNo is null!");
+      return;
+    };
+    console.log(expNos);
+
+    let exist_flag = false;
+    for (var i = 0; i < expNos.length; i++) {
+      if (expNos[i]['expNo'] === expNo) {
+        exist_flag = true;
+        break;
+      }
+    };
+    if (exist_flag) {
+      Toast({
+        type: 'fail',
+        message: '已关注过此单号!',
+        selector: '#zan-toast-test',
+        timeout: 1000
+      });
+    } else {
+      this.addExpNo(expNo, expNos);
+    }
+  },
+  addExpNo: function (expNo, expNos) {
+    expNos.push({
+      expNo: expNo
+    });
+    wx.setStorageSync('expNos', expNos);
+    Toast({
+      type: 'success',
+      message: '关注成功!',
+      selector: '#zan-toast-test',
+      timeout: 1000
+    });
+    return;
+  },
+  scanExpNo: function () {
+    // 允许从相机和相册扫码
+    wx.scanCode({
+      success: (res) => {
+        console.log(res);
+        this.setData({
+          expNo: res.result
+        });
+        this.queryExpress();
+      }
+    })
+  },
+  deleteTxt: function () {
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      expNo: ""
+    });
+  },
+  clearPage: function () {
+    this.setData({
+      ExpressInfo: null
     })
   }
-})
+});

@@ -5,21 +5,40 @@ const app = getApp();
 Page({
   data: {
     expNos: [],
+    hiddenmodalput: true,
+    note: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
+  //点击按钮痰喘指定的hiddenmodalput弹出框
+  modalinput: function (e, a) {
+    let _index = e.currentTarget.dataset.exp_index;
+    console.log(_index);
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput,
+      tap_index: _index
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+  //取消按钮
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    });
   },
-
+  //确认
+  confirm: function (e, a) {
+    this.addNote(this.data.tap_index, this.data.note);
+    let expNos = wx.getStorageSync('expNos') || [];
+    console.log(expNos);
+    this.setData({
+      note: '',
+      hiddenmodalput: true,
+    });
+  },
+  noteInput: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      note: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -28,34 +47,6 @@ Page({
     this.setData({
       expNos: expNos
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-    wx.stopPullDownRefresh();
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
   },
 
   clearExpNos: function() {
@@ -80,17 +71,46 @@ Page({
     console.log("turn2query");
     app.globalData.globalExpNo = e.currentTarget.dataset.exp_no;
     wx.switchTab({
-      url: '../demo/demo',
+      url: '../index/index',
     });
   },
   deleteExpno: function(e, a){
-    let _index = e.currentTarget.dataset.exp_index;
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗?',
+      success: function (res) {
+        if (res.confirm) {
+          let _index = e.currentTarget.dataset.exp_index;
+          let expNos = wx.getStorageSync('expNos') || [];
+          expNos.splice(_index, 1);
+          that._setD(expNos);
+          Toast({
+            type: 'success',
+            message: '删除成功!',
+            selector: '#zan-toast-test',
+            timeout: 500
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
+    return;
+  },
+  addNote: function (tap_index, note){
     let expNos = wx.getStorageSync('expNos') || [];
-    expNos.splice(_index, 1);
-    wx.setStorageSync('expNos', expNos);
+    expNos[tap_index].note = note;
+    this._setD(expNos);
+    return;
+  },
+  _setD: function (expNos){
     this.setData({
       expNos: expNos
     });
-    return
+    wx.setStorageSync('expNos', expNos);
+  },
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh();
   }
 })

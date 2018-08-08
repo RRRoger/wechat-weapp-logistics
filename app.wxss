@@ -53,3 +53,11 @@
 .cp-button {
   background-color: #1296db;
 }
+
+.cp-no-data{
+  margin-top: 200px;
+  color: #888;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}

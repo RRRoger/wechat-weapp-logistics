@@ -22,7 +22,7 @@ api_url: "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 
 --
 
-## demo
+## index
 
 
 > ### **快递查询**

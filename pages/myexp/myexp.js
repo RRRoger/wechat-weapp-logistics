@@ -85,12 +85,12 @@ Page({
           let expNos = wx.getStorageSync('expNos') || [];
           expNos.splice(_index, 1);
           that._setD(expNos);
-          Toast({
-            type: 'success',
-            message: '删除成功!',
-            selector: '#zan-toast-test',
-            timeout: 500
-          });
+          // Toast({
+          //   type: 'success',
+          //   message: '删除成功!',
+          //   selector: '#zan-toast-test',
+          //   timeout: 500
+          // });
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

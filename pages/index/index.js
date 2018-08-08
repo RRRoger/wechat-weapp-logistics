@@ -25,12 +25,13 @@ Page({
     express.queryByNum(this.data.expNo, this);
   },
   onShow: function () {
-    let expNos = wx.getStorageSync('expNos') || [];
-    if (expNos.length > 0) {
-      this.setData({
-        expNo: expNos[0].expNo,
-      });
-    };
+    // 用store里面第一个快递单号
+    // let expNos = wx.getStorageSync('expNos') || [];
+    // if (expNos.length > 0) {
+    //   this.setData({
+    //     expNo: expNos[0].expNo,
+    //   });
+    // };
     if (app.globalData.globalExpNo) {
       this.setData({
         expNo: app.globalData.globalExpNo

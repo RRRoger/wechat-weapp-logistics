@@ -22,19 +22,19 @@ api_url: "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 
 --
 
-## index
+## demo
 
 
 > ### **快递查询**
 
-![](pages/static/image/myexp.jpeg)
+![select](pages/static/image/select.jpg)
 
 --
 
 
 > ### **我的快递**
 
-![](pages/static/image/select.jpeg)
+![myexp](pages/static/image/myexp.jpg)
 
 
 ## License

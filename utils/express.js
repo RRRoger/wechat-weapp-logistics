@@ -123,7 +123,6 @@ function queryByNum(expNo, obj) {
                 var expname = data[res.tapIndex].ShipperName;
                 queryExpress(expname, code, expNo, obj);
               }
-              console.log(res.tapIndex)
             },
             fail: function(res) {
               console.log(res.errMsg)
@@ -132,8 +131,7 @@ function queryByNum(expNo, obj) {
 
         } else {
           //如果只有一个，则直接查询, 可能快递鸟不知道要匹配哪家快递
-          console.log('如果只有一个，则直接查询');
-          console.log(data);
+          console.log('如果只有一个，则直接查询', data);
           queryExpress(data[0].ShipperName, data[0].ShipperCode, expNo, obj);
         }
       } else {

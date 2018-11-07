@@ -3,44 +3,63 @@
 
 ###  微信小程序查快递
 
-1. ui框架 [zanui](https://github.com/youzan/zanui-weapp)
-
-2. [快递鸟接口文档](http://www.kdniao.com/api-track)
-
-3. [base64.js](utils/base64.js)
-
-4. [MD5.js](utils/MD5.js)
-
-5. [GUID.js](utils/GUID.js)
+- [UI框架(zanui)](https://github.com/youzan/zanui-weapp)
+- [快递鸟接口文档](http://www.kdniao.com/api-track)
+- [base64.js](utils/base64.js)
+- [MD5.js](utils/MD5.js)
+- [GUID.js](utils/GUID.js)
 
 
-> 详细请参考接口文档
+> 详细请参考[接口文档](http://www.kdniao.com/api-track)
 
-```
-api_url: 
-	http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx
+```python
+API_URL= "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 ```
 
 ## 小程序码
 
-
-
 ![](pages/static/image/weapp_code.png)
 
+## Demo
 
-## demo
+### **1.快递查询**
 
+<!--![select](pages/static/image/select.jpg)-->
 
-> ### **快递查询**
+<img src="./pages/static/image/select.jpg" width = "300" height = "auto" alt="图片名称" align=center />
 
-![select](pages/static/image/select.jpg)
+### **2.我的快递**
 
+<!--![myexp](pages/static/image/myexp.jpg)-->
 
-> ### **我的快递**
+<img src="./pages/static/image/myexp.jpg" width = "300" height = "auto" alt="图片名称" align=center />
 
-![myexp](pages/static/image/myexp.jpg)
+### **3.分享快递信息**
 
+<img src="./pages/static/image/share.jpg" width = "300" height = "auto" alt="图片名称" align=center />
 
-## License
+## MIT License
 
-[MIT license](https://github.com/RRRoger/wechat-weapp-logistics/blob/master/LICENSE).
+```license
+MIT License
+
+Copyright (c) 2018 Roger
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

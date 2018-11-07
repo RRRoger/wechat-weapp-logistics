@@ -1,6 +1,5 @@
 # wechat-weapp-logistics
 
-
 ###  微信小程序查快递
 
 - [UI框架(zanui)](https://github.com/youzan/zanui-weapp)
@@ -18,25 +17,21 @@ API_URL= "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 
 ## 小程序码
 
-![](pages/static/image/weapp_code.png)
+<img src="./pages/static/image/weapp_code.png" width="150" height="auto"/>
 
 ## Demo
 
 ### **1.快递查询**
 
-<!--![select](pages/static/image/select.jpg)-->
-
-<img src="./pages/static/image/select.jpg" width = "300" height = "auto" alt="图片名称" align=center />
+<img src="./pages/static/image/select.jpg" width="300" height="auto"/>
 
 ### **2.我的快递**
 
-<!--![myexp](pages/static/image/myexp.jpg)-->
-
-<img src="./pages/static/image/myexp.jpg" width = "300" height = "auto" alt="图片名称" align=center />
+<img src="./pages/static/image/myexp.jpg" width="300" height="auto"/>
 
 ### **3.分享快递信息**
 
-<img src="./pages/static/image/share.jpg" width = "300" height = "auto" alt="图片名称" align=center />
+<img src="./pages/static/image/share.jpg" width="300" height="auto"/>
 
 ## MIT License
 

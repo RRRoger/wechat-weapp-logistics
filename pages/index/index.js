@@ -11,6 +11,13 @@ Page({
     expNo: ''
   },
   onLoad: function (options) {
+    // console.log('options', options)
+    if (options.expNo) {
+      this.setData({
+        expNo: options.expNo
+      });
+      this.queryExpress();
+    };
   },
   expNoInput: function (e) {
     this.setData({
@@ -43,7 +50,9 @@ Page({
     // }
   },
   onShareAppMessage: function () {
-    let path = '/pages/index/index';
+    let expNo = this.data.expNo || '';
+    // console.log('expNo', expNo);
+    let path = '/pages/index/index?expNo=' + expNo ;
     let title = '快递查询';
 
     return {

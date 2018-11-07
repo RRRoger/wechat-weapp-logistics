@@ -14,8 +14,8 @@
 
   <view class="cp-view-separator" />
   <view>
-    <zan-button type="primary" size="small" bindtap="queryExpress" class="attention">查询快递</zan-button>
-    <zan-button type="primary" size="small" bindtap="attention" class="attention">关注此单号</zan-button>
+    <zan-button type="primary" size="small" bindtap="queryExpress" class="attention">查询</zan-button>
+    <zan-button type="primary" size="small" bindtap="attention" class="attention">关注</zan-button>
     <!-- <zan-button type="primary" size="small" bindtap="clearExpNos" class="attention">清除</zan-button> -->
     <zan-button type="primary" size="small" bindtap="clearPage" class="attention">清除</zan-button>
   </view>
